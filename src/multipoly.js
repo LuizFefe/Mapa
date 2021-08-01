@@ -1,25 +1,10 @@
-var mymap = L.map('mapid', {
-    center: [-27.517863 , -48.475285],
-    zoom: 12,
-    measureControl: true
-  });
-L.tileLayer('https://api.maptiler.com/maps/basic/{z}/{x}/{y}.png?key=xSgqXGh2wDPY98sOqRay',{
-        tileSize: 512,
-        zoomOffset: -1,
-        minZoom: 1,
-        crossOrigin: true
-      }).addTo(mymap);
-$.ajax({
-    type: "POST",
-    url: 'http://localhost:8080/geoserver/LimitF/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=LimitF%3A4326shoriginal&maxFeatures=50&outputFormat=application%2Fjson',
-    dataType: 'json',
-    success: function (response) {
-        L.geoJson(response).addTo(mymap);
-        geojsonLayer = response;//Define geojsonLayer como o geojson gerado pelo geoserver
+        L.geoJson(L_multipoly).addTo(mymap);
+        geojsonLayer =L_multipoly ;//Define geojsonLayer como o geojson gerado pelo geoserver
     //Cria um style de como eu quero visualmente a camada
   function style(feature) {
       return {
-          fillColor: '#336699',
+          fillColor: '#ffffff00',
+          fillOpacity: 0.1,
           weight: 2,
           opacity: 1,
           color: 'black',
@@ -31,8 +16,8 @@ function highlightFeature(e) {
     var layer = e.target;//Varia para interação do mapa,e.target e basicamente o objeto que esta sendo apontado pelo mouse
     layer.setStyle({
         //fill: "",
-        fillColor: '#02254B',//Cor que vai preencher o evento "apontado"
-        fillOpacity: 0.7,//Opacidade do preenchimento evento
+        fillColor: '#ffffff00',//Cor que vai preencher o evento "apontado"
+        fillOpacity: 1.0,//Opacidade do preenchimento evento
         weight: 5,//Grossura do contorno do evento
         color: '#000000'//Cor do contorno do evento
         //dashArray: '', Para fazer pontilhado no contorno do evento
@@ -56,7 +41,7 @@ function highlightFeature(e) {
         mouseout: resetHighlight,//Mouseout da trigger quando o mouse sai de cima de cada feature
         click: zoomToFeature,//Quando clica na feature da zoom
     });
-    //layer.bindPopup('<h1>'+feature.properties.nm_dist_ad+'</h1><p>Habitantes: '+feature.properties.pop_2010_i+'</p>');// Opcao de popup pra cada feature do geojson
+    layer.bindPopup('<h1>'+feature.properties.nm_dist_ad+'</h1><p>Habitantes: '+feature.properties.pop_2010_i+'</p>');// Opcao de popup pra cada feature do geojson
 }
 
  geojson = L.geoJson(geojsonLayer, {
@@ -78,18 +63,4 @@ info.update = function (props) {
         : 'Passe o mouse sobre um estado');
 };
 info.addTo(mymap);
- //Adiciona comandos de marcadores poligonos e outras features
-mymap.pm.addControls({  
-    position: 'topleft',  
-    drawCircle: false,  
-  });  
-
-
-
-
         //mymap.fitBounds(geojsonLayer.getBounds());
-        
-    }
-
-  
-});

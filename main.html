@@ -2,19 +2,35 @@
 <html lang="en">
 
 <head>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="node_modules\leaflet\dist\leaflet.css" />
+  <script src="node_modules\leaflet\dist\leaflet.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.css" />
-  <script src="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.min.js"></script>
   <link rel="stylesheet" href="node_modules\leaflet-measure\dist\leaflet-measure.css" />
   <script src="node_modules\leaflet-measure\dist\leaflet-measure.js"></script>
+  <link rel="stylesheet" href="node_modules\leaflet-search\dist\leaflet-search.src.css" />
+  <script src="node_modules\leaflet-search\dist\leaflet-search.src.js"></script>
+  <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+  <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
+  <script src="node_modules\leaflet-providers\leaflet-providers.js"></script>
+  <link rel='stylesheet' href='node_modules\@geoman-io\leaflet-geoman-free\dist\leaflet-geoman.css' />
+  <script src="node_modules\@geoman-io\leaflet-geoman-free\dist\leaflet-geoman.min.js"></script>
   <link rel="stylesheet" href="styles\style.css" />
 </head>
 
 <body>
+  <section class = "header">
+    <nav>
+       <a href = "main.html"><img src ="images\LogoIpuf.png" ></a>
+    </nav>
+    
+  </section>
   <div id="mapid"></div>
-  <script src="src\map.js"></script>
+  <script src="src\maptile.js"></script>
+  <script src="src\pointer.js"></script>
+  <script src="src\multipoly.js"></script>
+  <script src="src\GroupL.js"></script>
+  
+  
 </body>
 
 </html>
