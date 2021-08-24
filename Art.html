@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-  <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.js"></script>
   <link rel="stylesheet" href="node_modules\leaflet\dist\leaflet.css" />
   <script src="node_modules\leaflet\dist\leaflet.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -19,6 +18,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles\style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.js"></script>
+  <link rel='stylesheet' href='node_modules\leaflet-fusesearch-master\src\leaflet.fusesearch.css'>
+  <script src='node_modules\leaflet-fusesearch-master\src\leaflet.fusesearch.js'></script>
 </head>
 
 <body>
@@ -27,21 +29,24 @@
        <a href = "main.html"><img src ="images\LogoIpuf.png" ></a>
        <div class="nav-links">
          <ul>
-           <li><a href="main.html">Inicio</a></li>
-           <li><a href="Lote.html">Mapa Lotes</a></li>
-           <li><a href="">Mapa Regioes</a></li>
-           <li><a href="Art.html">Mapa Artes</a></li>
+            <li><a href="main.html">Inicio</a></li>
+            <li><a href="Lote.html">Mapa Lotes</a></li>
+            <li><a href="">Mapa Regioes</a></li>
+            <li><a href="Art.html">Mapa Artes</a></li>
          </ul>
        </div>
     </nav>
+   <div class="text-box">
+     <h1><h1>Mapa Pontos Artisticos</h1></h1>
+   </div> 
   </section>
   <div id="mapid"></div>
-  <!-- <script src="4326GeoJson.js"></script> -->
   <script src="src\maptile.js"></script>
-  <!-- <script src="src\Quadra.js"></script> -->
-  <!-- <script src="src\pointer.js"></script> -->
-  <!-- <script src="src\multipoly.js"></script> -->
-  <script src="src\Lote.js"></script>
+  <script src="src\pointer.js"></script>
+  <!-- <script src="src\multipoly.js"></script> --> -->
+  <!-- <script src="src\Lote.js"></script>
+  
+  
 </body>
 
 </html>

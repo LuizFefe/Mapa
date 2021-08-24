@@ -14,6 +14,7 @@
   L.geoJson(geojsonLayer, {style: style}).addTo(mymap);
 function highlightFeature(e) {
     var layer = e.target;//Varia para interação do mapa,e.target e basicamente o objeto que esta sendo apontado pelo mouse
+    /* console.log(e.target.feature.properties.nm_dist_ad) AQUIIIIIIIIIIIIIIIIIII */
     layer.setStyle({
         //fill: "",
         fillColor: '#ffffff00',//Cor que vai preencher o evento "apontado"
@@ -33,6 +34,7 @@ function highlightFeature(e) {
     info.update();
   } 
   function zoomToFeature(e) {
+    console.log(e.target.feature.properties.nm_dist_ad,console.log, e.target.feature.properties.cd_dist_ad)
     mymap.fitBounds(e.target.getBounds());//Da zoom no target event
   }
   function onEachFeature(feature, layer) {
@@ -41,6 +43,7 @@ function highlightFeature(e) {
         mouseout: resetHighlight,//Mouseout da trigger quando o mouse sai de cima de cada feature
         click: zoomToFeature,//Quando clica na feature da zoom
     });
+    /* console.log(feature.properties.nm_dist_ad) */
     layer.bindPopup('<h1>'+feature.properties.nm_dist_ad+'</h1><p>Habitantes: '+feature.properties.pop_2010_i+'</p>');// Opcao de popup pra cada feature do geojson
 }
 

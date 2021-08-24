@@ -27,7 +27,7 @@ L.tileLayer('https://api.maptiler.com/maps/topo/{z}/{x}/{y}.png?key=pylflXXX61wE
     drawCircle: false,  
   }); */
   const L_multipoly = function () {
-    var tmp;
+    var tmp; 
     $.ajax({
         'async': false,
         'type': "POST",
@@ -40,7 +40,7 @@ L.tileLayer('https://api.maptiler.com/maps/topo/{z}/{x}/{y}.png?key=pylflXXX61wE
     });
     return tmp;
 }();
-const L_pointer = function () {
+ const L_pointer = function () {
   var tmp;
   $.ajax({
       'async': false,
@@ -54,3 +54,31 @@ const L_pointer = function () {
   });
   return tmp;
 }();
+const L_lote = function () {
+  var tmp;
+  $.ajax({
+      'async': false,
+      'type': "POST",
+      'global': false,
+      'dataType': 'json',
+      'url': 'http://localhost:8080/geoserver/LimitF/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=LimitF%3Aloteamento&outputFormat=application%2Fjson&SRSname=EPSG:4326',
+      'success': function (data) {
+          tmp = data;
+      }
+  });
+  return tmp;
+}();
+const L_quadra = function () {
+  var tmp;
+  $.ajax({
+      'async': false,
+      'type': "POST",
+      'global': false,
+      'dataType': 'json',
+      'url': 'http://localhost:8080/geoserver/Teste/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Teste%3Aquadralote&outputFormat=application%2Fjson&SRSname=EPSG:4326',
+      'success': function (data) {
+          tmp = data;
+      }
+  });
+  return tmp;
+}(); 
