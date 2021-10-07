@@ -15,11 +15,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="node_modules\leaflet-measure\dist\leaflet-measure.css" />
     <script src="node_modules\leaflet-measure\dist\leaflet-measure.js"></script>
-    <link rel="stylesheet" href="node_modules\leaflet-search\dist\leaflet-search.src.css" />
-    <script src="node_modules\leaflet-search\dist\leaflet-search.src.js"></script>
     <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
     <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
     <script src="node_modules\leaflet-providers\leaflet-providers.js"></script>
+    <script src="node_modules\@geoman-io\leaflet-geoman-free\dist\leaflet-geoman.min.js"></script>
     <link rel='stylesheet' href='node_modules\@geoman-io\leaflet-geoman-free\dist\leaflet-geoman.css' />
     <script src="node_modules\turf\turf.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,45 +30,33 @@
   </head>
 
   <body>
-    <section class = "header"><!-- DIV DO HEADER DO SITE -->
-      <nav>
-          <div class="nav-links">
-            <ul>
-              <li><a href="main.html">INICIO</a></li>
-              <li><a href="Lote.html">INFO LOTES</a></li>
-              <li><a href="código_formulário\index.html">DESENHO GEOMETRIA</a></li>
-            </ul>
-          </div>
-      </nav>
-    </section>
-  
       <div class="container-fluid">
 
         <div class="sidebar"><!-- SIDE BAR DAS INFORMAÇÕES SOLICITADAS -->
+          <label for="lname">AREA TOTAL</label><br>
+            <p id="dadosAname">*********</p>
+          <br>
 
-          <label for="lname">CODIGO BAIRRO</label><br>
-            <p id="ssbairro">00000000000</p>
+          <label for="lname">DADOS ...</label><br>
+            <p id="dadoslname">*********</p>
             <input type="text" id="sbairro" name="CODIGOB" placeholder="Novo Codigo Bairro" required="required">
           <br>
-          <label for="fname">CODIGO LOTE</label><br>
-            <p id="sslote">00000000000</p>
+          <label for="fname">DADOS ...</label><br>
+            <p id="dadosfname">*********</p>
             <input type="text" id="slote" name="CODIGOL" placeholder="Novo Codigo Lote" required="required">
           <br>
-          <label for="cname">DATA DE CADASTRO</label><br>
-            <p id="ccadastro">aaaa/mm/dd</p>
+          <label for="cname">LOTES USADOS</label><br>
+            <p id="dadoscname">*********</p>
             <input type="text" id="cadastro" name="DATA" placeholder="Nova Data" required="required">
           <br>
-          <label for="cname">CODIGO LOTES UNIDOS</label><br>
-            <p id="geom"></p>
-          <br>
-          <input type="button" onclick="juncaoo();popitup();removejuncao()" value="JUNTAR"><!-- BOTÃO QUE EXECUTA A FUNÇÃO DE JUNÇÃO -->
-          <!-- <input type="button" onclick="removejuncao()" value="LIMPAR JUNÇÃO"> --><!-- BOTÃO QUE EXECUTA A FUNÇÃO DE JUNÇÃO -->
+
+          <input type="button" onclick="Dadosjunc()" value="SALVAR JUNCAO"><!-- BOTÃO QUE EXECUTA A FUNÇÃO DE JUNÇÃO -->
           
         </div>
 
         <div class="mapa">
-          <div id="mapid"></div><!-- MAPA -->
-          <div id="mapidjuncao" style="display: none;">
+            <div id="mapidjuncao"></div><!-- MAPA -->
+            <div id="mapid" style="display: none;">
         </div>
       </div>
 
@@ -81,6 +68,7 @@
       <script src="src\Ajaxes.js"></script>
       <script src="src\maptile.js"></script>
       <script src="src\LoteDev.js"></script>
+      <script src="src\Unionmap.js"></script>
   </body>
 </html> 
 

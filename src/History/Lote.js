@@ -1,6 +1,10 @@
-L.geoJson(L_quadra).addTo(mymap);
-geojsonLayer =L_quadra;//Define geojsonLayer como o geojson gerado pelo geoserver
-var searchLayer = L.geoJson(L_quadra).addTo(mymap)
+Quadra = L.geoJson(L_quadra)
+Lote = L.geoJson()
+var overlayMaps = {
+  "Quadras":Quadra,
+  "Lote":Lote
+};
+L.control.layers(overlayMaps).addTo(mymap);
 //Cria um style de como eu quero visualmente a camada
 /* function style(feature) {
 return {
@@ -48,32 +52,49 @@ function resetHighlight(e) {
 geojson.resetStyle(e.target);//Reseta o stilo da layer para o setado anteriormente
 /* info.update(); */
 } 
+/* function onEachFeatureL(feature, layer) {
+  layer.bindPopup('</h1><p>CD Lote: '+feature.properties.cd_lote+'</p>'+'CD Quadra'+feature.properties.cd_quadra);// Opcao de popup pra cada feature do geojson
+  } */
+/* L.geojson(Lotee,{
+  onEachFeature:onEachFeatureL
+}).addTo(Lote) */
 function zoomToFeature(e) {
-  L.geoJson(L_lote, {
-    filter: function(feature, layer) {
-         /* console.log(feature.properties.cd_quadra)  */
+  console.log(e.target.feature.properties)
+    return e.target.feature.properties
+ /*  L.geoJson(L_lote, {
+    filter: function(feature, layer) { 
         if(e.target.feature.properties.cd_quadra ==feature.properties.cd_quadra){
             return true
         }
     }
 
-}).addTo(mymap);
+}).addTo(Lote); */
+console.log(Lote)
+/* Lote.addTo(mymap) */
 }
-function onEachFeature(feature, layer) {
+function onEachFeatureQ(feature, layer) {
 layer.on({
 mouseover: highlightFeature,//Mouseouver da triger na função quando passa por cima de cada feature
 mouseout: resetHighlight,//Mouseout da trigger quando o mouse sai de cima de cada feature
 click: zoomToFeature,//Quando clica na feature da zoom
 });
 feature.layer = layer;
-layer.bindPopup('</h1><p>N Inscricoes: '+feature.properties.cd_quadra+'</p>');// Opcao de popup pra cada feature do geojson
+/* layer.bindPopup('</h1><p>N Inscricoes: '+feature.properties.cd_quadra+'</p>'); */// Opcao de popup pra cada feature do geojson
 }
+function onEachFeatureL(feature, layer) {
+  layer.on({
+  mouseover: highlightFeature,//Mouseouver da triger na função quando passa por cima de cada feature
+  mouseout: resetHighlight,//Mouseout da trigger quando o mouse sai de cima de cada feature
+  click: zoomToFeature,//Quando clica na feature da zoom
+  });
+  feature.layer = layer;
+  layer.bindPopup('</h1><p>CD Lote: '+feature.properties.cd_lote+'</p>'+'CD Quadra'+feature.properties.cd_quadra);// Opcao de popup pra cada feature do geojson
+  }
 
-geojson = L.geoJson(geojsonLayer, {
+geojson = L.geoJson(L_quadra, {
 /* style: style,//Adiciona o style criado a camada geojson */
-onEachFeature: onEachFeature//Adiciona a cada feature da camada as função criada acima
-}).addTo(mymap); 
-
+onEachFeature: onEachFeatureQ//Adiciona a cada feature da camada as função criada acima
+}).addTo(Quadra);  
 /* var info = L.control();// Variavel  base que controla as informações da camada interativa
 info.onAdd = function (mymap) {
 this._div = L.DomUtil.create('div', 'info'); // Cria uma div para mostras as infos

@@ -14,8 +14,21 @@
     "fuse": "^0.4.0",
     "leaflet": "^1.7.1",
     "leaflet-arrowheads": "^1.2.3",
+    "leaflet-draw": "^1.0.4",
     "leaflet-measure": "^3.1.0",
     "leaflet-providers": "^1.12.0",
-    "leaflet-search": "^2.9.9"
-  }
+    "leaflet-search": "^2.9.9",
+    "pg": "^8.7.1",
+    "turf": "^3.0.14"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LuizFefe/Mapa.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/LuizFefe/Mapa/issues"
+  },
+  "homepage": "https://github.com/LuizFefe/Mapa#readme"
 }
