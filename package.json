@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "@geoman-io/leaflet-geoman-free": "^2.11.2",
+    "beautifymarker": "^1.0.9",
     "express": "^4.17.1",
     "fuse": "^0.4.0",
     "leaflet": "^1.7.1",

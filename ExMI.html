@@ -25,18 +25,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;400;700&display=swap" rel="stylesheet"> -->
     <link rel="stylesheet" href="styles\styles.css" />
-    <script src="node_modules\leaflet-draw\dist\leaflet.draw.js"></script>
-    <link rel="stylesheet" href="node_modules\leaflet-draw\dist\leaflet.draw.css" />
+    <script src="node_modules\beautifymarker\leaflet-beautify-marker-icon.js"></script>
+    <link rel="stylesheet" href="node_modules\beautifymarker\leaflet-beautify-marker-icon.css" />
   </head>
 
   <body>
       <div class="container-fluid">
 
         <div class="sidebar"><!-- SIDE BAR DAS INFORMAÇÕES SOLICITADAS -->
-          <label for="lname">AREA TOTAL</label><br>
-            <p id="dadosAname">*********</p>
-          <br>
-
           <label for="lname">DADOS ...</label><br>
             <p id="dadoslname">*********</p>
             <input type="text" id="sbairro" name="CODIGOB" placeholder="Novo Codigo Bairro" required="required">
@@ -45,12 +41,12 @@
             <p id="dadosfname">*********</p>
             <input type="text" id="slote" name="CODIGOL" placeholder="Novo Codigo Lote" required="required">
           <br>
-          <label for="cname">LOTES USADOS</label><br>
+          <label for="cname">DADOS ...</label><br>
             <p id="dadoscname">*********</p>
             <input type="text" id="cadastro" name="DATA" placeholder="Nova Data" required="required">
           <br>
 
-          <input type="button" onclick="Dadosjunc()" value="SALVAR JUNCAO"><!-- BOTÃO QUE EXECUTA A FUNÇÃO DE JUNÇÃO -->
+          <input type="button" onclick="Dadosjunc()" value="SALVAR MUDANCAS"><!-- BOTÃO QUE EXECUTA A FUNÇÃO DE JUNÇÃO -->
           
         </div>
 
@@ -65,12 +61,10 @@
         <strong style="color: rgb(0, 0, 0)">INFORMAÇÃO DE LOTES</strong>
       </footer> -->
 
-      <script src="src\Ajaxes.js"></script>
+<!--       <script src="src\Ajaxes.js"></script> -->
       <script src="src\maptile.js"></script>
-      <script src="src\LoteDev.js"></script>
-      <script src="src\Unionmap.js"></script>
-      <script src="src\saveDB.js"></script>
-
+<!--       <script src="src\LoteDev.js"></script> -->
+      <script src="src\ExMI.js"></script>
   </body>
 </html> 
 
